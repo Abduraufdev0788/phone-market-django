@@ -4,7 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savatcha - Telefon Dokon</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ======== Umumiy style ======== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ======== Header ======== */
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0af;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #0af;
+        }
+
+        .auth-buttons a {
+            background-color: #0af;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            margin-left: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .auth-buttons a:hover {
+            background-color: #0095ff;
+        }
+
+        /* ======== Savatcha Sahifasi ======== */
+        .cart-page {
+            padding: 50px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #222;
+        }
+
+        .cart-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-item-details h4 {
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #0af;
+            font-weight: bold;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity-btn {
+            background-color: #ddd;
+            border: none;
+            width: 25px;
+            height: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 3px;
+        }
+
+        .remove-btn {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            font-size: 20px;
+            padding: 4px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .btn-checkout {
+            background-color: #0af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-checkout:hover {
+            background-color: #0080ff;
+        }
+
+        /* ======== Footer ======== */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            color: #0af;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #0af;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Responsiv dizayn */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .cart-summary {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -21,100 +267,3 @@
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <a href="royxatdan-otish.html?action=login" class="btn btn-login">Kirish</a>
-                <a href="royxatdan-otish.html" class="btn btn-register">Ro'yxatdan o'tish</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Cart Section -->
-    <section class="cart-page">
-        <div class="container">
-            <h1 class="page-title">Savatcha</h1>
-            
-            <div class="cart-container">
-                <!-- Cart Item 1 -->
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <div class="cart-item-image">
-                            <img src="images/iphone14.jpg" alt="iPhone 14 Pro" width="60">
-                        </div>
-                        <div class="cart-item-details">
-                            <h4>iPhone 14 Pro</h4>
-                            <div class="cart-item-price">12,499,000 so'm</div>
-                        </div>
-                    </div>
-                    <div class="cart-item-controls">
-                        <div class="quantity-control">
-                            <button class="quantity-btn">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn">+</button>
-                        </div>
-                        <button class="remove-btn">×</button>
-                    </div>
-                </div>
-                
-                <!-- Cart Item 2 -->
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <div class="cart-item-image">
-                            <img src="images/samsung-s23.jpg" alt="Samsung Galaxy S23" width="60">
-                        </div>
-                        <div class="cart-item-details">
-                            <h4>Samsung Galaxy S23</h4>
-                            <div class="cart-item-price">10,999,000 so'm</div>
-                        </div>
-                    </div>
-                    <div class="cart-item-controls">
-                        <div class="quantity-control">
-                            <button class="quantity-btn">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn">+</button>
-                        </div>
-                        <button class="remove-btn">×</button>
-                    </div>
-                </div>
-                
-                <div class="cart-summary">
-                    <div class="cart-total">Jami: 23,498,000 so'm</div>
-                    <button class="btn btn-checkout">Buyurtma berish</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>TelefonDokon</h3>
-                    <p>Eng yangi va sifatli telefonlarni biz bilan xarid qiling. Biz sizga eng yaxshi narxlarni taklif qilamiz.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Tez havolalar</h3>
-                    <ul>
-                        <li><a href="index.html">Bosh sahifa</a></li>
-                        <li><a href="telefonlar.html">Telefonlar</a></li>
-                        <li><a href="savatcha.html">Savatcha</a></li>
-                        <li><a href="aloqa.html">Aloqa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Aloqa</h3>
-                    <ul>
-                        <li>📍 Toshkent shahar, Yunusobod tumani</li>
-                        <li>📞 +998 90 123 45 67</li>
-                        <li>✉️ info@telefondokon.uz</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2023 TelefonDokon. Barcha huquqlar himoyalangan.
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>

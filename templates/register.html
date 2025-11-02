@@ -1,105 +1,363 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ro'yxatdan o'tish - Telefon Dokon</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ro'yxatdan o'tish - Telefon Dokon</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #0077ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      color: #0077ff;
+    }
+
+    .auth-buttons a {
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      margin-left: 5px;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 1px solid #0077ff;
+      color: #0077ff;
+    }
+
+    .btn-login:hover {
+      background: #0077ff;
+      color: white;
+    }
+
+    .btn-register {
+      background: #0077ff;
+      color: white;
+      border: none;
+    }
+
+    .btn-register:hover {
+      background: #005fcc;
+    }
+
+    /* Registration form */
+    .registration-page {
+      padding: 70px 0;
+      background: #f1f5ff;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #0077ff;
+    }
+
+    .registration-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: #0077ff;
+      box-shadow: 0 0 5px rgba(0,119,255,0.3);
+    }
+
+    .btn-submit {
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: #005fcc;
+    }
+
+    .auth-switch {
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .auth-switch a {
+      color: #0077ff;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ccc;
+      padding: 50px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      transition: 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .registration-container {
+        padding: 25px;
+      }
+
+      .page-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">TelefonDokon</div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Bosh Sahifa</a></li>
-                    <li><a href="telefonlar.html">Telefonlar</a></li>
-                    <li><a href="savatcha.html">Savatcha</a></li>
-                    <li><a href="aloqa.html">Aloqa</a></li>
-                    <li><a href="royxatdan-otish.html" class="active">Ro'yxatdan o'tish</a></li>
-                </ul>
-            </nav>
-            <div class="auth-buttons">
-                <a href="royxatdan-otish.html?action=login" class="btn btn-login">Kirish</a>
-                <a href="royxatdan-otish.html" class="btn btn-register">Ro'yxatdan o'tish</a>
-            </div>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">TelefonDokon</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Bosh Sahifa</a></li>
+          <li><a href="telefonlar.html">Telefonlar</a></li>
+          <li><a href="savatcha.html">Savatcha</a></li>
+          <li><a href="aloqa.html">Aloqa</a></li>
+          <li><a href="royxatdan-otish.html" class="active">Ro'yxatdan o'tish</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="royxatdan-otish.html?action=login" class="btn btn-login">Kirish</a>
+        <a href="royxatdan-otish.html" class="btn btn-register">Ro'yxatdan o'tish</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Registration Section -->
-    <section class="registration-page">
-        <div class="container">
-            <h1 class="page-title" id="form-title">Ro'yxatdan o'tish</h1>
-            
-            <div class="registration-container">
-                <form id="auth-form">
-                    <div class="form-group">
-                        <label for="reg-name">Ism</label>
-                        <input type="text" id="reg-name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-surname">Familiya</label>
-                        <input type="text" id="reg-surname" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-email">Email</label>
-                        <input type="email" id="reg-email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-phone">Telefon</label>
-                        <input type="tel" id="reg-phone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-password">Parol</label>
-                        <input type="password" id="reg-password" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-confirm-password">Parolni tasdiqlang</label>
-                        <input type="password" id="reg-confirm-password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-submit" style="width: 100%;" id="submit-btn">Ro'yxatdan o'tish</button>
-                </form>
-                
-                <div class="auth-switch">
-                    <p id="switch-text">Allaqachon hisobingiz bormi? <a href="#" id="switch-link">Kirish</a></p>
-                </div>
-            </div>
+  <!-- Registration Section -->
+  <section class="registration-page">
+    <div class="container">
+      <h1 class="page-title" id="form-title">Ro'yxatdan o'tish</h1>
+      
+      <div class="registration-container">
+        <form id="auth-form">
+          <div class="form-group reg-fields">
+            <label for="reg-name">Ism</label>
+            <input type="text" id="reg-name" class="form-control" required>
+          </div>
+          <div class="form-group reg-fields">
+            <label for="reg-surname">Familiya</label>
+            <input type="text" id="reg-surname" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" class="form-control" required>
+          </div>
+          <div class="form-group reg-fields">
+            <label for="reg-phone">Telefon</label>
+            <input type="tel" id="reg-phone" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Parol</label>
+            <input type="password" id="reg-password" class="form-control" required>
+          </div>
+          <div class="form-group reg-fields">
+            <label for="reg-confirm-password">Parolni tasdiqlang</label>
+            <input type="password" id="reg-confirm-password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-submit" style="width: 100%;" id="submit-btn">Ro'yxatdan o'tish</button>
+        </form>
+        
+        <div class="auth-switch">
+          <p id="switch-text">Allaqachon hisobingiz bormi? <a href="#" id="switch-link">Kirish</a></p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>TelefonDokon</h3>
-                    <p>Eng yangi va sifatli telefonlarni biz bilan xarid qiling. Biz sizga eng yaxshi narxlarni taklif qilamiz.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Tez havolalar</h3>
-                    <ul>
-                        <li><a href="index.html">Bosh sahifa</a></li>
-                        <li><a href="telefonlar.html">Telefonlar</a></li>
-                        <li><a href="savatcha.html">Savatcha</a></li>
-                        <li><a href="aloqa.html">Aloqa</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Aloqa</h3>
-                    <ul>
-                        <li>📍 Toshkent shahar, Yunusobod tumani</li>
-                        <li>📞 +998 90 123 45 67</li>
-                        <li>✉️ info@telefondokon.uz</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2023 TelefonDokon. Barcha huquqlar himoyalangan.
-            </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>TelefonDokon</h3>
+          <p>Eng yangi va sifatli telefonlarni biz bilan xarid qiling. Biz sizga eng yaxshi narxlarni taklif qilamiz.</p>
         </div>
-    </footer>
+        <div class="footer-column">
+          <h3>Tez havolalar</h3>
+          <ul>
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="telefonlar.html">Telefonlar</a></li>
+            <li><a href="savatcha.html">Savatcha</a></li>
+            <li><a href="aloqa.html">Aloqa</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Aloqa</h3>
+          <ul>
+            <li>📍 Toshkent shahar, Yunusobod tumani</li>
+            <li>📞 +998 90 123 45 67</li>
+            <li>✉️ info@telefondokon.uz</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 TelefonDokon. Barcha huquqlar himoyalangan.
+      </div>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <script>
+    // Kirish / Ro'yxatdan o'tish o'rtasida almashish
+    const switchLink = document.getElementById('switch-link');
+    const formTitle = document.getElementById('form-title');
+    const submitBtn = document.getElementById('submit-btn');
+    const switchText = document.getElementById('switch-text');
+    const regFields = document.querySelectorAll('.reg-fields');
+
+    let isLogin = false;
+
+    switchLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      isLogin = !isLogin;
+
+      if (isLogin) {
+        formTitle.textContent = "Kirish";
+        submitBtn.textContent = "Kirish";
+        switchText.innerHTML = "Hisobingiz yo‘qmi? <a href='#' id='switch-link'>Ro'yxatdan o'tish</a>";
+
+        regFields.forEach(f => f.style.display = "none");
+      } else {
+        formTitle.textContent = "Ro'yxatdan o'tish";
+        submitBtn.textContent = "Ro'yxatdan o'tish";
+        switchText.innerHTML = "Allaqachon hisobingiz bormi? <a href='#' id='switch-link'>Kirish</a>";
+
+        regFields.forEach(f => f.style.display = "block");
+      }
+    });
+
+    // Oddiy alert uchun
+    const form = document.getElementById('auth-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (isLogin) {
+        alert("Tizimga muvaffaqiyatli kirdingiz ✅");
+      } else {
+        alert("Ro'yxatdan o'tish muvaffaqiyatli amalga oshirildi ✅");
+      }
+    });
+  </script>
 </body>
 </html>

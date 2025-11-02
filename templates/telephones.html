@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telefonlar - Telefon Dokon</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
 </head>
 <body>
     <!-- Header -->
@@ -13,16 +14,16 @@
             <div class="logo">TelefonDokon</div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Bosh Sahifa</a></li>
-                    <li><a href="telefonlar.html" class="active">Telefonlar</a></li>
-                    <li><a href="savatcha.html">Savatcha</a></li>
-                    <li><a href="aloqa.html">Aloqa</a></li>
-                    <li><a href="royxatdan-otish.html">Ro'yxatdan o'tish</a></li>
+                    <li><a href="{% url 'index' %}">Bosh Sahifa</a></li>
+                    <li><a href="{% url 'telefonlar' %}" class="active">Telefonlar</a></li>
+                    <li><a href="{% url 'savatcha' %}">Savatcha</a></li>
+                    <li><a href="{% url 'aloqa' %}">Aloqa</a></li>
+                    <li><a href="{% url 'royxatdan_otish' %}">Ro'yxatdan o'tish</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <a href="royxatdan-otish.html?action=login" class="btn btn-login">Kirish</a>
-                <a href="royxatdan-otish.html" class="btn btn-register">Ro'yxatdan o'tish</a>
+                <a href="{% url 'royxatdan_otish' %}?action=login" class="btn btn-login">Kirish</a>
+                <a href="{% url 'royxatdan_otish' %}" class="btn btn-register">Ro'yxatdan o'tish</a>
             </div>
         </div>
     </header>
@@ -58,10 +59,9 @@
             
             <!-- Phones Grid -->
             <div class="phones-grid">
-                <!-- Phone 1 -->
                 <div class="phone-card">
                     <div class="phone-image">
-                        <img src="images/iphone14.jpg" alt="iPhone 14 Pro">
+                        <img src="{% static 'myapp/images/iphone14.jpg' %}" alt="iPhone 14 Pro">
                     </div>
                     <div class="phone-info">
                         <h3>iPhone 14 Pro</h3>
@@ -70,11 +70,10 @@
                         <button class="btn btn-add-to-cart">Savatchaga qo'shish</button>
                     </div>
                 </div>
-                
-                <!-- Phone 2 -->
+
                 <div class="phone-card">
                     <div class="phone-image">
-                        <img src="images/samsung-s23.jpg" alt="Samsung Galaxy S23">
+                        <img src="{% static 'myapp/images/samsung-s23.jpg' %}" alt="Samsung Galaxy S23">
                     </div>
                     <div class="phone-info">
                         <h3>Samsung Galaxy S23</h3>
@@ -83,11 +82,10 @@
                         <button class="btn btn-add-to-cart">Savatchaga qo'shish</button>
                     </div>
                 </div>
-                
-                <!-- Phone 3 -->
+
                 <div class="phone-card">
                     <div class="phone-image">
-                        <img src="images/xiaomi-13.jpg" alt="Xiaomi 13 Pro">
+                        <img src="{% static 'myapp/images/xiaomi-13.jpg' %}" alt="Xiaomi 13 Pro">
                     </div>
                     <div class="phone-info">
                         <h3>Xiaomi 13 Pro</h3>
@@ -96,11 +94,10 @@
                         <button class="btn btn-add-to-cart">Savatchaga qo'shish</button>
                     </div>
                 </div>
-                
-                <!-- Phone 4 -->
+
                 <div class="phone-card">
                     <div class="phone-image">
-                        <img src="images/google-pixel7.jpg" alt="Google Pixel 7">
+                        <img src="{% static 'myapp/images/google-pixel7.jpg' %}" alt="Google Pixel 7">
                     </div>
                     <div class="phone-info">
                         <h3>Google Pixel 7</h3>
@@ -109,11 +106,10 @@
                         <button class="btn btn-add-to-cart">Savatchaga qo'shish</button>
                     </div>
                 </div>
-                
-                <!-- Phone 5 -->
+
                 <div class="phone-card">
                     <div class="phone-image">
-                        <img src="images/iphone13.jpg" alt="iPhone 13">
+                        <img src="{% static 'myapp/images/iphone13.jpg' %}" alt="iPhone 13">
                     </div>
                     <div class="phone-info">
                         <h3>iPhone 13</h3>
@@ -122,11 +118,10 @@
                         <button class="btn btn-add-to-cart">Savatchaga qo'shish</button>
                     </div>
                 </div>
-                
-                <!-- Phone 6 -->
+
                 <div class="phone-card">
                     <div class="phone-image">
-                        <img src="images/samsung-a54.jpg" alt="Samsung Galaxy A54">
+                        <img src="{% static 'myapp/images/samsung-a54.jpg' %}" alt="Samsung Galaxy A54">
                     </div>
                     <div class="phone-info">
                         <h3>Samsung Galaxy A54</h3>
@@ -150,10 +145,10 @@
                 <div class="footer-column">
                     <h3>Tez havolalar</h3>
                     <ul>
-                        <li><a href="index.html">Bosh sahifa</a></li>
-                        <li><a href="telefonlar.html">Telefonlar</a></li>
-                        <li><a href="savatcha.html">Savatcha</a></li>
-                        <li><a href="aloqa.html">Aloqa</a></li>
+                        <li><a href="{% url 'index' %}">Bosh sahifa</a></li>
+                        <li><a href="{% url 'telefonlar' %}">Telefonlar</a></li>
+                        <li><a href="{% url 'savatcha' %}">Savatcha</a></li>
+                        <li><a href="{% url 'aloqa' %}">Aloqa</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -171,6 +166,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="{% static 'myapp/script.js' %}"></script>
 </body>
 </html>
