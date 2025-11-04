@@ -232,16 +232,16 @@
       <div class="logo">TelefonDokon</div>
       <nav>
         <ul>
-          <li><a href="index.html">Bosh Sahifa</a></li>
-          <li><a href="telefonlar.html">Telefonlar</a></li>
-          <li><a href="savatcha.html">Savatcha</a></li>
-          <li><a href="aloqa.html">Aloqa</a></li>
-          <li><a href="royxatdan-otish.html" class="active">Ro'yxatdan o'tish</a></li>
+          <li><a href='{% url "bosh_sahifa" %}'>Bosh Sahifa</a></li>
+          <li><a href='{% url "telephone" %}'>Telefonlar</a></li>
+          <li><a href='{% url "basket" %}'>Savatcha</a></li>
+          <li><a href='{% url "contact" %}'>Aloqa</a></li>
+          <li><a href='{% url "register" %}' class="active">Ro'yxatdan o'tish</a></li>
         </ul>
       </nav>
       <div class="auth-buttons">
-        <a href="royxatdan-otish.html?action=login" class="btn btn-login">Kirish</a>
-        <a href="royxatdan-otish.html" class="btn btn-register">Ro'yxatdan o'tish</a>
+        <a href='{% url "register" %}?action=login' class="btn btn-login">Kirish</a>
+        <a href='{% url "register" %}' class="btn btn-register">Ro'yxatdan o'tish</a>
       </div>
     </div>
   </header>
@@ -281,7 +281,7 @@
         </form>
         
         <div class="auth-switch">
-          <p id="switch-text">Allaqachon hisobingiz bormi? <a href="#" id="switch-link">Kirish</a></p>
+          <p id="switch-text">Allaqachon hisobingiz bormi? <a href="" id="switch-link">Kirish</a></p>
         </div>
       </div>
     </div>
@@ -298,10 +298,10 @@
         <div class="footer-column">
           <h3>Tez havolalar</h3>
           <ul>
-            <li><a href="index.html">Bosh sahifa</a></li>
-            <li><a href="telefonlar.html">Telefonlar</a></li>
-            <li><a href="savatcha.html">Savatcha</a></li>
-            <li><a href="aloqa.html">Aloqa</a></li>
+            <li><a href="{% url 'bosh_sahifa' %}">Bosh sahifa</a></li>
+            <li><a href="{% url 'telephone' %}">Telefonlar</a></li>
+            <li><a href="{% url 'basket' %}">Savatcha</a></li>
+            <li><a href="{% url 'contact' %}">Aloqa</a></li>
           </ul>
         </div>
         <div class="footer-column">

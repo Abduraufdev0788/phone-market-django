@@ -268,11 +268,11 @@
       <div class="logo">TelefonDokon</div>
       <nav>
         <ul>
-          <li><a href="index.html" class="active">Bosh Sahifa</a></li>
-          <li><a href="telefonlar.html">Telefonlar</a></li>
-          <li><a href="savatcha.html">Savatcha</a></li>
-          <li><a href="aloqa.html">Aloqa</a></li>
-          <li><a href="royxatdan-otish.html">Ro'yxatdan o'tish</a></li>
+          <li><a href="" class="active">Bosh Sahifa</a></li>
+          <li><a href='{% url "telephone" %}'>Telefonlar</a></li>
+          <li><a href='{% url "basket" %}'>Savatcha</a></li>
+          <li><a href='{% url "contact" %}'>Aloqa</a></li>
+          <li><a href='{% url "register" %}'>Ro'yxatdan o'tish</a></li>
         </ul>
       </nav>
       <div class="auth-buttons">
@@ -287,7 +287,7 @@
     <div class="container">
       <h1>Eng yangi va zamonaviy telefonlar</h1>
       <p>Bizning do'konimizda siz barcha brendlarning eng so'nggi modellari va eng yaxshi narxlarni topasiz</p>
-      <a href="telefonlar.html" class="btn btn-hero">Telefonlarni ko'rish</a>
+      <a href='{% url "telephone" %}' class="btn btn-hero">Telefonlarni ko'rish</a>
     </div>
   </section>
 
